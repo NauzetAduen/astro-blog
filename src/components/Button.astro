@@ -1,0 +1,10 @@
+---
+const { href, text, external } = Astro.props;
+const target = external ? "_blank" : "";
+---
+
+<button
+  class="font-bold mt-6 text-base uppercase hover:rounded hover:border-2 hover:border-black p-2 border-2 border-white"
+>
+  <a href={href} rel="noopener noreferrer" target={target}>{text}</a>
+</button>
