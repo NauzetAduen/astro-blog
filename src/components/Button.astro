@@ -3,8 +3,9 @@ const { href, text, external } = Astro.props;
 const target = external ? "_blank" : "";
 ---
 
+<!-- TODO ADD ICON -->
 <button
-  class="font-bold mt-6 text-base uppercase hover:rounded hover:border-2 hover:border-black p-2 border-2 border-white"
+  class="mt-[1.5em] ease bg-gradient-to-tl from-yellow-200 to-yellow-200 bg-invisible0 bg-left-bottom bg-no-repeat duration-300 hover:bg-visible3 font-bold text-base uppercase"
 >
   <a href={href} rel="noopener noreferrer" target={target}>{text}</a>
 </button>
