@@ -1,0 +1,35 @@
+---
+import { getCollection } from "astro:content";
+import MainLayout from "../../layouts/MainLayout.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
+import Title from "../../components/Title.astro";
+
+const projects = (await getCollection("projects")).sort(
+  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+);
+---
+
+<MainLayout>
+  <section class="mt-4">
+    <Title text="Personal projects" />
+    <ul>
+      {
+        projects.map((project) => (
+          <li class="my-4 ">
+            <div>
+              <h2 class="text-xl">
+                <a href={`/projects/${project.slug}/`}>
+                  # {project.data.title}
+                </a>
+              </h2>
+              <p class="text-sm">{project.data.pubDate}</p>
+            </div>
+            <p class="text-base text-gray-500 italic">
+              {project.data.description}
+            </p>
+          </li>
+        ))
+      }
+    </ul>
+  </section>
+</MainLayout>
