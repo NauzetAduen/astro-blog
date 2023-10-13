@@ -2,6 +2,7 @@
 title: "Tailwind-typography"
 description: "How to style your Markdown (*.md) files"
 pubDate: "Oct 12 2023"
+isFeatured: true
 # heroImage: '/blog-placeholder-3.jpg'
 ---
 
