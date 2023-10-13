@@ -2,7 +2,7 @@
 import Divider from "../components/Divider.astro";
 import Button from "../components/Button.astro";
 import Title from "../components/Title.astro";
-import LatestPosts from "../components/LatestPosts.astro";
+import FeaturedPosts from "../components/FeaturedPosts.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
@@ -19,10 +19,8 @@ import MainLayout from "../layouts/MainLayout.astro";
     <Button href="/about" text="Learn more" />
   </section>
   <Divider />
-  <section class="py-[1.5em]">
-    <Title text="Latest posts" />
-    <LatestPosts />
-  </section>
+
+  <FeaturedPosts />
   <Divider />
   <section id="contact" class="py-[1.5em]">
     <Title text="Let's chat" />
