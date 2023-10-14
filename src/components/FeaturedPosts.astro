@@ -2,6 +2,7 @@
 import { getCollection } from "astro:content";
 import Title from "./Title.astro";
 import Card from "./Card.astro";
+import Section from "./Section.astro";
 
 const posts = await getCollection("blog");
 const featuredPosts = posts.filter((post) => post.data.isFeatured);
@@ -9,7 +10,7 @@ const featuredPosts = posts.filter((post) => post.data.isFeatured);
 
 {
   featuredPosts.length !== 0 && (
-    <section class="py-[1.5em]">
+    <Section>
       <Title text="Featured posts" />
       <ul>
         {featuredPosts.map((featuredPost) => (
@@ -22,6 +23,6 @@ const featuredPosts = posts.filter((post) => post.data.isFeatured);
           />
         ))}
       </ul>
-    </section>
+    </Section>
   )
 }

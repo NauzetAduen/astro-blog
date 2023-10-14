@@ -3,6 +3,7 @@ import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
 import Card from "../../components/Card.astro";
+import Section from "../../components/Section.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -10,7 +11,7 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <MainLayout>
-  <section class="mt-[1.5em]">
+  <Section>
     <Title text="Blog posts" />
     <ul>
       {
@@ -25,5 +26,5 @@ const posts = (await getCollection("blog")).sort(
         ))
       }
     </ul>
-  </section>
+  </Section>
 </MainLayout>

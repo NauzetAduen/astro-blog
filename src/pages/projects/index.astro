@@ -4,6 +4,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import Card from "../../components/Card.astro";
+import Section from "../../components/Section.astro";
 
 const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -11,7 +12,7 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <MainLayout>
-  <section class="mt-[1.5em]">
+  <Section>
     <Title text="Personal projects" />
     <ul>
       {
@@ -26,5 +27,5 @@ const projects = (await getCollection("projects")).sort(
         ))
       }
     </ul>
-  </section>
+  </Section>
 </MainLayout>
