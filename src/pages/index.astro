@@ -5,6 +5,7 @@ import Title from "../components/Title.astro";
 import FeaturedPosts from "../components/FeaturedPosts.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 import Section from "../components/Section.astro";
+import GenericLink from "../components/GenericLink.astro";
 ---
 
 <MainLayout>
@@ -13,11 +14,13 @@ import Section from "../components/Section.astro";
       Hi, my name is <span class="font-bold">Nauzet Hernández</span>
        and I'm a Software Engineer based on The Canary Islands, Spain.
     </p>
-    <p class="">
-      I have around 3 years of experience developing mobile apps with
-      <a href="https://www.flutter.dev">Flutter</a>.
+    <p class="mt-2 mb-4">
+      I have around 3 years of experience developing mobile apps with <GenericLink
+        href="https://www.flutter.dev"
+        text="Flutter"
+      />.
     </p>
-    <Button href="/about" text="Learn more" />
+    <Button href="/about" text="Wanna know more?" />
   </Section>
   <Divider />
 
@@ -25,9 +28,8 @@ import Section from "../components/Section.astro";
   <Divider />
   <Section>
     <Title text="Let's chat" />
-    <p>Looking forward to meet you and learn more about you</p>
+    <p class="mb-4">Looking forward to meet you and learn more about you.</p>
     <Button
-      class=""
       href="mailto:nauzet.aduen@gmail.com?Subject=FromBlog"
       text="mail me"
     />
