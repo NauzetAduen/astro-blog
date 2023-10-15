@@ -1,6 +1,7 @@
 ---
 import Button from "../components/Button.astro";
 import Divider from "../components/Divider.astro";
+import GenericLink from "../components/GenericLink.astro";
 import Section from "../components/Section.astro";
 import Title from "../components/Title.astro";
 import MainLayout from "../layouts/MainLayout.astro";
@@ -18,16 +19,15 @@ import MainLayout from "../layouts/MainLayout.astro";
   <Section>
     <Title text="Work" />
     <p>
-      In 2022, worked at <a class="underline" href="https://www.barkibu.com"
-        >Barkibu</a
-      >
+      In 2022, worked at
+      <GenericLink href="https://www.barkibu.com" text="Barkibu" />
        helping develop the mobile app in Flutter. Worked in every area, from
       backend, in Ruby on Rails, to devops, with Bitrise, Heroku, etc.
     </p>
     <p class="">
-      In 2021, worked at <a class="underline" href="https://adedelivered.com"
-        >ADE</a
-      > where I helped develop a webapp in React aimed at helping companies in
+      In 2021, worked at
+      <GenericLink href="https://adedelivered.com" text="ADE" />
+       where I helped develop a webapp in React aimed at helping companies in
       the mobility sector adapt to the new e-mobility landscape.
     </p>
   </Section>
@@ -38,12 +38,10 @@ import MainLayout from "../layouts/MainLayout.astro";
     <Title text="Tech" />
     <p>
       Have a Degree in Computer Engineering with an intesification in Software
-      Engineering by the <a
-        class="underline"
+      Engineering by the <GenericLink
         href="https://www.ulpgc.es"
-        rel="noopener noreferrer"
-        target="_blank">ULPGC</a
-      >.
+        text="ULPGC"
+      />.
     </p>
     <p class="">
       Focused in mobile development, specifically in Flutter, with around 3
@@ -62,10 +60,10 @@ import MainLayout from "../layouts/MainLayout.astro";
   <Section>
     <Title text="Personal" />
     <p>
-      Some of my hobbies are learning the guitar and the bass, <a
+      Some of my hobbies are learning the guitar and the bass, <GenericLink
         href="https://www.chess.com/member/nowset"
-        class="underline">playing chess</a
-      > and working out.
+        text="playing chess"
+      /> and working out.
     </p>
 
     <p class="">
