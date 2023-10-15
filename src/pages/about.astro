@@ -1,54 +1,53 @@
 ---
 import Button from "../components/Button.astro";
 import Divider from "../components/Divider.astro";
+import GenericLink from "../components/GenericLink.astro";
+import Section from "../components/Section.astro";
 import Title from "../components/Title.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
-  <section class="py-[1.5em]">
+  <Section>
     <p>Hola, Hello, こんにちは, Salut, Hallo, 안녕하세요.</p>
-    <p class="mt-4">
+    <p class="">
       My full name is Nauzet Aduen Hernández Hernández, I'm a Software Engineer
       based in Gran Canaria, Spain.
     </p>
-  </section>
+  </Section>
   <Divider />
-  <section class="py-[1.5em]">
+  <Section>
     <Title text="Work" />
     <p>
-      In 2022, worked at <a class="underline" href="https://www.barkibu.com"
-        >Barkibu</a
-      >
+      In 2022, worked at
+      <GenericLink href="https://www.barkibu.com" text="Barkibu" />
        helping develop the mobile app in Flutter. Worked in every area, from
       backend, in Ruby on Rails, to devops, with Bitrise, Heroku, etc.
     </p>
-    <p class="mt-4">
-      In 2021, worked at <a class="underline" href="https://adedelivered.com"
-        >ADE</a
-      > where I helped develop a webapp in React aimed at helping companies in
+    <p class="">
+      In 2021, worked at
+      <GenericLink href="https://adedelivered.com" text="ADE" />
+       where I helped develop a webapp in React aimed at helping companies in
       the mobility sector adapt to the new e-mobility landscape.
     </p>
-  </section>
+  </Section>
 
   <Divider />
 
-  <section class="py-[1.5em]">
+  <Section>
     <Title text="Tech" />
     <p>
       Have a Degree in Computer Engineering with an intesification in Software
-      Engineering by the <a
-        class="underline"
+      Engineering by the <GenericLink
         href="https://www.ulpgc.es"
-        rel="noopener noreferrer"
-        target="_blank">ULPGC</a
-      >.
+        text="ULPGC"
+      />.
     </p>
-    <p class="mt-4">
+    <p class="">
       Focused in mobile development, specifically in Flutter, with around 3
       years of experience.
     </p>
-    <p class="mt-4">
+    <p class="">
       Love to learn new tech and be the first adapter and then forget about it.
     </p>
     <Button
@@ -56,21 +55,20 @@ import MainLayout from "../layouts/MainLayout.astro";
       text="Visit my github"
       external="true"
     />
-  </section>
+  </Section>
   <Divider />
-  <section class="py-[1.5em]">
+  <Section>
     <Title text="Personal" />
     <p>
-      Some of my hobbies are learning the guitar and the bass, <a
+      Some of my hobbies are learning the guitar and the bass, <GenericLink
         href="https://www.chess.com/member/nowset"
-        class="underline">playing chess</a
-      > and working out.
+        text="playing chess"
+      /> and working out.
     </p>
 
-    <p class="mt-4">
+    <p class="">
       Far into the past, played football, basketball and videogames for years.
     </p>
-    <p class="mt-4">Diabetic type I, broken too many bones, sleeps poorly.</p>
-  </section>
-  <Divider />
+    <p class="">Diabetic type I, broken too many bones, sleeps poorly.</p>
+  </Section>
 </MainLayout>

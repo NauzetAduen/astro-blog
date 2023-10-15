@@ -1,5 +1,15 @@
+---
+import GenericLink from "./GenericLink.astro";
+---
+
 <footer
-  class="py-[1.5em] max-w-3xl mx-auto mt-auto text-center text-xs leading-tight sm:text-base"
+  class="max-w-3xl mx-auto text-center text-xs leading-tight sm:text-base my-9"
 >
-  &copy; 2023 Nauzet Hernández. All rights reserved.
+  <p>&copy; 2023 Nauzet Hernández. All rights reserved.</p>
+  <p>
+    Developed with
+    <GenericLink href="https://www.astro.build" text="Astro" />
+     and
+    <GenericLink href="https://tailwindcss.com" text="Tailwind" />
+  </p>
 </footer>
