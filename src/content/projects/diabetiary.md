@@ -3,7 +3,7 @@ title: "Diabetiary"
 description: "A mobile app for diabetes"
 pubDate: "Mar 28 2020"
 status: "abandoned"
-# heroImage: "/blog-placeholder-3.jpg"
+icon: "smartphone"
 ---
 
 As a diabetic type I patient, one of the keys of success and wellbeing is to adapt your insulin doses. Let's explain it better with an example where I'm going to tremendusly simplify everything:

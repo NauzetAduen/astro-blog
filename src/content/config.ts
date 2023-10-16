@@ -14,6 +14,7 @@ const projects = defineCollection({
 		title:z.string(),
 		description: z.string(),
 		pubDate: z.coerce.date(),
+		icon: z.string()
 
 	})
 })
