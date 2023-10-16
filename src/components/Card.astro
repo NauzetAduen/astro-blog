@@ -4,14 +4,16 @@ import FormattedDate from "./FormattedDate.astro";
 const { slug, title, description, pubDate, base } = Astro.props;
 ---
 
-<li class="my-4">
+<li
+  class="max-w-fit my-4 ease bg-gradient-to-tl from-springGreen to-springGreen bg-invisibleBig bg-left-bottom bg-no-repeat duration-300 hover:bg-visibleBig hover:scale-105"
+>
   <a href={`/${base}/${slug}/`}
     >{title}
     <h2 class="text-xl font-bold"></h2>
     <p class="text-sm">
       <FormattedDate date={pubDate} />
     </p>
-    <p class="text-base text-gray-500 italic">
+    <p class="text-base text-payneGrey italic">
       {description}
     </p>
   </a>

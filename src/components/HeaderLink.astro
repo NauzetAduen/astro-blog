@@ -9,12 +9,14 @@ const { pathname } = Astro.url;
 const isActive = href === pathname || href === pathname.replace(/\/$/, "");
 ---
 
-{
-  /* TODO - add active navbar tailwind css
-  don't forget this css will be added to menuitems
-  isActive ? "text-red-400" : ""
-*/
-}
-<a href={href} class:list={[className, isActive]} {...props}>
+<a
+  href={href}
+  class:list={[
+    className,
+    isActive ? "font-bold" : "text-payneGrey",
+    "max-h-4 decoration-wavy flex items-center justify-center ease bg-gradient-to-tl from-springGreen to-springGreen bg-invisibleSmall bg-left-bottom bg-no-repeat duration-300 hover:bg-visibleSmall",
+  ]}
+  {...props}
+>
   <slot />
 </a>
