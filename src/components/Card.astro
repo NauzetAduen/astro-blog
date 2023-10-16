@@ -1,15 +1,18 @@
 ---
 import FormattedDate from "./FormattedDate.astro";
+import SvgImage from "./SvgImage.astro";
 
-const { slug, title, description, pubDate, base } = Astro.props;
+const { slug, title, description, pubDate, base, icon } = Astro.props;
 ---
 
 <li
   class="max-w-fit my-4 ease bg-gradient-to-tl from-springGreen to-springGreen bg-invisibleBig bg-left-bottom bg-no-repeat duration-300 hover:bg-visibleBig hover:scale-105"
 >
-  <a href={`/${base}/${slug}/`}
-    >{title}
-    <h2 class="text-xl font-bold"></h2>
+  <a href={`/${base}/${slug}/`}>
+    <div class="flex gap-2">
+      <SvgImage iconString={icon} />
+      <h2 class="text-xl font-bold">{title}</h2>
+    </div>
     <p class="text-sm">
       <FormattedDate date={pubDate} />
     </p>

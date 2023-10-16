@@ -1,0 +1,18 @@
+---
+import svgSmartphone from "./../../public/icons/Monitor-smartphone.svg";
+import svgCodeSquare from "./../../public/icons/Code-square.svg";
+import svgMonitor from "./../../public/icons/Monitor.svg";
+
+const { iconString } = Astro.props;
+const iconsMap: { [key: string]: string } = {
+  smartphone: svgSmartphone,
+  code: svgCodeSquare,
+  monitor: svgMonitor,
+};
+
+//defaulting svgCodeSquare
+const icon = iconsMap[iconString] ?? svgCodeSquare;
+const altText = iconString === "undefined" ? iconString : "project image";
+---
+
+<img width="20px" height="20px" src={icon} alt={altText} />

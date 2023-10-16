@@ -2,7 +2,6 @@
 import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
-import FormattedDate from "../../components/FormattedDate.astro";
 import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
 
@@ -23,6 +22,7 @@ const projects = (await getCollection("projects")).sort(
             description={project.data.description}
             pubDate={project.data.pubDate}
             base="projects"
+            icon={project.data.icon}
           />
         ))
       }
