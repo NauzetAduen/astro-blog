@@ -11,11 +11,11 @@ import GenericLink from "../components/GenericLink.astro";
 <MainLayout>
   <Section>
     <p>
-      Hi, my name is <span class="font-bold">Nauzet Hernández</span>
-       and I'm a Software Engineer based on The Canary Islands, Spain.
+      Hello, I'm <span class="font-bold">Nauzet</span>, a Software Engineer
+      based on The Canary Islands, Spain.
     </p>
-    <p class="mt-1 mb-4">
-      I have around 3 years of experience developing mobile apps with <GenericLink
+    <p class="mt-1">
+      Have around 3 years of experience developing mobile apps with <GenericLink
         href="https://www.flutter.dev"
         text="Flutter"
       />.
@@ -23,12 +23,23 @@ import GenericLink from "../components/GenericLink.astro";
     <Button href="/about" text="Wanna know more?" />
   </Section>
   <Divider />
-
+  <Section>
+    <Title text="Where are you?" />
+    <p class="mt-1">
+      This is my small corner of the vast world wide web where I share technical
+      mishaps and even some of my worst projects. Eventually would like to add a
+      music with my learnings and experiences.
+    </p>
+  </Section>
+  <Divider />
   <FeaturedPosts />
   <Divider />
   <Section>
     <Title text="Let's chat" />
-    <p class="mb-4">Looking forward to meet you and learn more about you.</p>
+    <p>
+      Do you wanna talk? A suggestion? A concern? let's talk then. Looking
+      forward to meet you and learn more about you.
+    </p>
     <Button
       href="mailto:nauzet.aduen@gmail.com?Subject=FromBlog"
       text="mail me"
