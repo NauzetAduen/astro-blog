@@ -14,6 +14,12 @@ We check our sugar level before each meal. Depending of that value, you may need
 
 Back in 2020, couldn't find any app which atack this simple and important issue.
 
-That's when I designed and developed Diabetiary. Spoiler alert: I abandoned the project because of the [Abbot sensor](https://www.freestyle.abbott/es-es/inicio.html) given by the spanish public healthcare system.
+That's when I designed and developed Diabetiary.
 
 The main goal of the app was to notify the user that they need to modify their dosage, pointing out that in some meals they have an incorrect constant value.
+
+# MVP
+
+This was the app in the mvp phase, where multiple features where not yet implemented.
+![Diabetiary](/src/img/diabetiary.png)
+I abandoned the project because of the Abbot sensor given by the spanish public healthcare system which came with an extremely good app, which help you control your diabetes with constant controls. More info in their [website](https://www.freestyle.abbott/es-es/inicio.html).
