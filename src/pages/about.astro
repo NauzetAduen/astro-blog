@@ -1,4 +1,5 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
 import Button from "../components/Button.astro";
 import Divider from "../components/Divider.astro";
 import GenericLink from "../components/GenericLink.astro";
@@ -8,6 +9,11 @@ import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
+  <BaseHead
+    title="About | Nauzet Hernández's About Page"
+    description="Get to know a Software Engineer and Flutter Developer. Explore my journey, passions, and experiences in the world of mobile app and web development."
+    slot="header"
+  />
   <Section>
     <p>Hola, Hello, こんにちは, Salut, Hallo, 안녕하세요.</p>
     <p class="mt-1">
@@ -19,7 +25,7 @@ import MainLayout from "../layouts/MainLayout.astro";
         href="https://en.wikipedia.org/wiki/Guanches"
         text="guanche name"
       />, which means "the warrior of every battle", a warrior who never lost or
-      fought injured.
+      fought injured. Aduen is also a guanche name, but it's meaning is unknown.
     </p>
   </Section>
   <Divider />

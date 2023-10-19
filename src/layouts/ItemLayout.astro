@@ -1,8 +1,12 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
 import MainLayout from "./MainLayout.astro";
+
+const { title, description } = Astro.props;
 ---
 
 <MainLayout>
+  <BaseHead title={title} , description={description} slot="header" />
   <article
     class="my-9 prose-a:underline prose-p:my-1 prose-h1:font-bold prose-h1:text-2xl prose-h1:mb-4 prose-h2:font-bold prose-h2:mt-6 prose-h2:mb-2 prose-a:decoration-2
     prose-a:ease prose-a:bg-gradient-to-tl prose-a:from-springGreen prose-a:to-springGreen prose-a:bg-invisibleSmall

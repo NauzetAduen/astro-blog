@@ -13,8 +13,9 @@ type Props = CollectionEntry<"projects">;
 
 const project = Astro.props;
 const { Content } = await project.render();
+const title = project.data.title + " | Personal project ";
 ---
 
-<ItemLayout>
+<ItemLayout title={title} description={project.data.description}>
   <Content />
 </ItemLayout>

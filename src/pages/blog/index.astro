@@ -4,6 +4,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
 import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
+import BaseHead from "../../components/BaseHead.astro";
 
 const posts = (await getCollection("blog")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -11,6 +12,11 @@ const posts = (await getCollection("blog")).sort(
 ---
 
 <MainLayout>
+  <BaseHead
+    title="Blog | Nauzet Hernández's Articles Page"
+    description="Explore a tech blog by a Software Engineer and Flutter Developer. Discover articles on mobile app and web development, coding tips, and more. Stay updated with the latest in the tech world."
+    slot="header"
+  />
   <Section>
     <Title text="Blog posts" />
     <ul>
