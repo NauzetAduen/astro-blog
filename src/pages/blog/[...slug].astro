@@ -1,5 +1,7 @@
 ---
 import BaseHead from "../../components/BaseHead.astro";
+import Divider from "../../components/Divider.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 import ItemLayout from "../../layouts/ItemLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 
@@ -18,5 +20,10 @@ const title = post.data.title + " | Article";
 ---
 
 <ItemLayout title={title} description={post.data.description}>
+  <h1 class="text-fireEngineRed" transition:name="title">{post.data.title}</h1>
+  <p class="text-sm" transition:name="date">
+    <FormattedDate date={post.data.pubDate} />
+  </p>
+  <Divider />
   <Content />
 </ItemLayout>

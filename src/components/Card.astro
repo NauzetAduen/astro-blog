@@ -11,9 +11,9 @@ const { slug, title, description, pubDate, base, icon } = Astro.props;
   <a href={`/${base}/${slug}/`}>
     <div class="flex gap-2">
       <SvgImage iconString={icon} />
-      <h2 class="text-xl font-bold">{title}</h2>
+      <h2 class="text-xl font-bold" transition:name="title">{title}</h2>
     </div>
-    <p class="text-sm">
+    <p class="text-sm" transition:name="date">
       <FormattedDate date={pubDate} />
     </p>
     <p class="text-base text-payneGrey italic">
