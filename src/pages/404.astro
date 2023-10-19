@@ -1,8 +1,14 @@
 ---
+import BaseHead from "../components/BaseHead.astro";
 import MainLayout from "../layouts/MainLayout.astro";
 ---
 
 <MainLayout>
+  <BaseHead
+    title="404 | Nauzet Hernández's 404 Page"
+    description="Oops! It seems you've reached a non-existent page. I'm here to help you navigate back to our site."
+    slot="header"
+  />
   <section class="flex gap-4 justify-center items-center mx-auto my-9">
     <p class="font-bold text-4xl text-fireEngineRed">404</p>
     <p>-</p>

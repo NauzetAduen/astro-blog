@@ -4,6 +4,7 @@ import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
 import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
+import BaseHead from "../../components/BaseHead.astro";
 
 const projects = (await getCollection("projects")).sort(
   (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
@@ -11,6 +12,11 @@ const projects = (await getCollection("projects")).sort(
 ---
 
 <MainLayout>
+  <BaseHead
+    title="Portfolio | Nauzet Hernández's Portfolio Page"
+    description="Explore my portfolio of projects as a Software Engineer and Flutter Developer. Discover innovative mobile app development solutions and see how I bring ideas to life through code and design."
+    slot="header"
+  />
   <Section>
     <Title text="Personal projects" />
     <ul>
