@@ -1,4 +1,6 @@
 ---
+import Divider from "../../components/Divider.astro";
+import FormattedDate from "../../components/FormattedDate.astro";
 import ItemLayout from "../../layouts/ItemLayout.astro";
 import { type CollectionEntry, getCollection } from "astro:content";
 
@@ -17,5 +19,12 @@ const title = project.data.title + " | Personal project ";
 ---
 
 <ItemLayout title={title} description={project.data.description}>
+  <h1 class="text-fireEngineRed" transition:name="title">
+    {project.data.title}
+  </h1>
+  <p class="text-sm" transition:name="date">
+    <FormattedDate date={project.data.pubDate} />
+  </p>
+  <Divider />
   <Content />
 </ItemLayout>
