@@ -12,4 +12,7 @@ export default defineConfig({
   experimental: {
     viewTransitions: true,
   },
+  vite: {
+    alias: { "@icons": "path" },
+  },
 });
