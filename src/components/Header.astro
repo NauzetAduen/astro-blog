@@ -3,22 +3,25 @@ import { Astronav, MenuItems, MenuIcon } from "astro-navbar";
 import HeaderLink from "./HeaderLink.astro";
 ---
 
-<header class="lg:flex py-5 px-0 gap-5 max-w-3xl mx-auto lg:py-[3em]">
+<header class="lg:flex gap-5 max-w-3xl mx-auto my-9">
   <Astronav>
     <div class="flex w-full justify-between text-xl font-bold lg:text-3xl">
       <div class="flex justify-end">
-        <HeaderLink><a href="/">&lbrace;nau.&rbrace;</a></HeaderLink>
+        <a href="/" transition:name="nau"
+          >&lbrace;nau<span class="text-springGreen">.</span>&rbrace;</a
+        >
       </div>
       <div class="block lg:hidden">
-        <MenuIcon class="w-4 h-4 text-gray-800" />
+        <MenuIcon class="w-6 h-6 ring-richBlack" />
       </div>
     </div>
     <MenuItems class="hidden lg:flex">
       <ul class="flex flex-col lg:flex-row lg:gap-8 items-center">
-        <HeaderLink href="/blog">blog</HeaderLink>
-        <HeaderLink href="/projects">projects</HeaderLink>
-        <HeaderLink href="/about">about</HeaderLink>
-        <HeaderLink href="#contact">contact</HeaderLink>
+        <HeaderLink href="/blog" transition:name="blog">blog</HeaderLink>
+        <HeaderLink href="/projects" transition:name="projects">
+          projects
+        </HeaderLink>
+        <HeaderLink href="/about" transition:name="about">about</HeaderLink>
       </ul>
     </MenuItems>
   </Astronav>

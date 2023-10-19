@@ -1,0 +1,31 @@
+---
+import BaseHead from "../components/BaseHead.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+import Divider from "../components/Divider.astro";
+import { ViewTransitions } from "astro:transitions";
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <slot name="header">
+      <BaseHead
+        title="Home | Nauzet Hernández's Site"
+        description="Software Engineer | Flutter Developer | Explore my projects, articles, and expertise in mobile app development. Discover my journey in crafting Flutter solutions"
+      />
+    </slot>
+    <ViewTransitions />
+  </head>
+  <body
+    class="font-custom m-0 text-left break-words overflow-wrap break-word leading-10 mx-8 text-richBlack bg-whiteSmoke"
+  >
+    <Header />
+    <Divider />
+    <main class="max-w-3xl mx-auto text-xl">
+      <slot />
+    </main>
+    <Divider />
+    <Footer />
+  </body>
+</html>

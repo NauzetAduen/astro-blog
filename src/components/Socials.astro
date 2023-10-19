@@ -1,0 +1,24 @@
+---
+import svgLinkedin from "../img/icons/socials/linkedin.svg";
+import svgInstagram from "../img/icons/socials/instagram.svg";
+import svgGithub from "../img/icons/socials/github.svg";
+import SocialIcon from "./SocialIcon.astro";
+---
+
+<div class="flex items-center justify-center gap-3 mt-2">
+  <SocialIcon
+    href="https://www.linkedin.com/in/nauzet-aduen-hern%C3%A1ndez-hern%C3%A1ndez-036b4118b/"
+    svg={svgLinkedin}
+    alt="Linkedin"
+  />
+  <SocialIcon
+    href="https://www.instagram.com/nauzet.aduen/"
+    svg={svgInstagram}
+    alt="Instagram"
+  />
+  <SocialIcon
+    href="https://github.com/NauzetAduen/"
+    svg={svgGithub}
+    alt="Github"
+  />
+</div>

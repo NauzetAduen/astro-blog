@@ -1,52 +1,48 @@
 ---
-import BaseHead from "../components/BaseHead.astro";
-import Header from "../components/Header.astro";
-import Footer from "../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import Divider from "../components/Divider.astro";
 import Button from "../components/Button.astro";
 import Title from "../components/Title.astro";
-import LatestPosts from "../components/LatestPosts.astro";
+import FeaturedPosts from "../components/FeaturedPosts.astro";
+import MainLayout from "../layouts/MainLayout.astro";
+import Section from "../components/Section.astro";
+import GenericLink from "../components/GenericLink.astro";
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body
-    class="font-custom m-0 px-3 text-left break-words overflow-wrap break-word leading-10"
-  >
-    <Header title={SITE_TITLE} />
-    <Divider />
-    <main class="max-w-3xl mx-auto text-2xl text-justify">
-      <section class="py-[1.5em]">
-        <p class="">
-          Hi, my name is <span class="font-bold text-3xl">Nauzet Hernández</span
-          > and I'm a Software Engineer based on The Canary Islands, Spain.
-        </p>
-        <p class="">
-          I have around 3 years of experience developing mobile apps with
-          <a href="https://www.flutter.dev">Flutter</a>.
-        </p>
-        <Button href="/about" text="Learn more" />
-      </section>
-      <Divider />
-      <section class="py-[1.5em]">
-        <Title text="Latest posts" />
-        <LatestPosts />
-      </section>
-      <Divider />
-      <section id="contact" class="py-[1.5em]">
-        <Title text="Let's chat" />
-        <p>Looking forward to meet you and learn more about you</p>
-        <Button
-          href="mailto:nauzet.aduen@gmail.com?Subject=FromBlog"
-          text="nauzet.aduen@gmail.com"
-        />
-      </section>
-      <Divider />
-    </main>
-    <Footer />
-  </body>
-</html>
+<MainLayout>
+  <Section>
+    <p>
+      Hello, I'm <span class="font-bold">Nauzet</span>, a Software Engineer
+      based on The Canary Islands, Spain.
+    </p>
+    <p class="mt-1">
+      Have around 3 years of experience developing mobile apps with <GenericLink
+        href="https://www.flutter.dev"
+        text="Flutter"
+      />.
+    </p>
+    <Button href="/about" text="Wanna know more?" />
+  </Section>
+  <Divider />
+  <Section>
+    <Title text="Where are you?" />
+    <p class="mt-1">
+      This is my small corner of the vast world wide web where I share technical
+      mishaps and even some of my worst projects. Eventually would like to add a
+      music with my learnings and experiences.
+    </p>
+  </Section>
+  <Divider />
+  <FeaturedPosts />
+  <Divider />
+  <Section>
+    <Title text="Let's chat" />
+    <p>
+      Do you wanna talk? A suggestion? A concern? let's talk then. Looking
+      forward to meet you and learn more about you.
+    </p>
+    <Button
+      href="mailto:nauzet.aduen@gmail.com?Subject=FromBlog"
+      text="mail me"
+    />
+  </Section>
+</MainLayout>

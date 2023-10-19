@@ -1,47 +1,36 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
-import Header from "../../components/Header.astro";
-import Footer from "../../components/Footer.astro";
-import { SITE_TITLE, SITE_DESCRIPTION } from "../../consts";
 import { getCollection } from "astro:content";
-import FormattedDate from "../../components/FormattedDate.astro";
+import MainLayout from "../../layouts/MainLayout.astro";
+import Title from "../../components/Title.astro";
+import Card from "../../components/Card.astro";
+import Section from "../../components/Section.astro";
+import BaseHead from "../../components/BaseHead.astro";
 
 const posts = (await getCollection("blog")).sort(
-  (a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf()
+  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
 );
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
-  </head>
-  <body>
-    <Header />
-    <main>
-      <section>
-        <ul>
-          {
-            posts.map((post) => (
-              <li>
-                <a href={`/blog/${post.slug}/`}>
-                  <img
-                    width={720}
-                    height={360}
-                    src={post.data.heroImage}
-                    alt=""
-                  />
-                  <h4 class="title">{post.data.title}</h4>
-                  <p class="date">
-                    <FormattedDate date={post.data.pubDate} />
-                  </p>
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </section>
-    </main>
-    <Footer />
-  </body>
-</html>
+<MainLayout>
+  <BaseHead
+    title="Blog | Nauzet Hernández's Articles Page"
+    description="Explore a tech blog by a Software Engineer and Flutter Developer. Discover articles on mobile app and web development, coding tips, and more. Stay updated with the latest in the tech world."
+    slot="header"
+  />
+  <Section>
+    <Title text="Blog posts" />
+    <ul>
+      {
+        posts.map((blog) => (
+          <Card
+            slug={blog.slug}
+            title={blog.data.title}
+            description={blog.data.description}
+            pubDate={blog.data.pubDate}
+            base="blog"
+          />
+        ))
+      }
+    </ul>
+  </Section>
+</MainLayout>

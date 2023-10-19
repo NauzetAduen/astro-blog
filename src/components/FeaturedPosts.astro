@@ -1,0 +1,28 @@
+---
+import { getCollection } from "astro:content";
+import Title from "./Title.astro";
+import Card from "./Card.astro";
+import Section from "./Section.astro";
+
+const posts = await getCollection("blog");
+const featuredPosts = posts.filter((post) => post.data.isFeatured);
+---
+
+{
+  featuredPosts.length !== 0 && (
+    <Section>
+      <Title text="Featured posts" />
+      <ul>
+        {featuredPosts.map((featuredPost) => (
+          <Card
+            slug={featuredPost.slug}
+            title={featuredPost.data.title}
+            description={featuredPost.data.description}
+            pubDate={featuredPost.data.pubDate}
+            base="blog"
+          />
+        ))}
+      </ul>
+    </Section>
+  )
+}

@@ -1,62 +1,91 @@
 ---
-import Layout from '../layouts/BlogPost.astro';
+import BaseHead from "../components/BaseHead.astro";
+import Button from "../components/Button.astro";
+import Divider from "../components/Divider.astro";
+import GenericLink from "../components/GenericLink.astro";
+import Section from "../components/Section.astro";
+import Title from "../components/Title.astro";
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 
-<Layout
-	title="About Me"
-	description="Lorem ipsum dolor sit amet"
-	pubDate={new Date('August 08 2021')}
-	heroImage="/blog-placeholder-about.jpg"
->
-	<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut
-		labore et dolore magna aliqua. Vitae ultricies leo integer malesuada nunc vel risus commodo
-		viverra. Adipiscing enim eu turpis egestas pretium. Euismod elementum nisi quis eleifend quam
-		adipiscing. In hac habitasse platea dictumst vestibulum. Sagittis purus sit amet volutpat. Netus
-		et malesuada fames ac turpis egestas. Eget magna fermentum iaculis eu non diam phasellus
-		vestibulum lorem. Varius sit amet mattis vulputate enim. Habitasse platea dictumst quisque
-		sagittis. Integer quis auctor elit sed vulputate mi. Dictumst quisque sagittis purus sit amet.
-	</p>
+<MainLayout>
+  <BaseHead
+    title="About | Nauzet Hernández's About Page"
+    description="Get to know a Software Engineer and Flutter Developer. Explore my journey, passions, and experiences in the world of mobile app and web development."
+    slot="header"
+  />
+  <Section>
+    <p>Hola, Hello, こんにちは, Salut, Hallo, 안녕하세요.</p>
+    <p class="mt-1">
+      My full name is Nauzet Aduen Hernández Hernández, I'm a Software Engineer
+      based in Gran Canaria, Spain.
+    </p>
+    <p class="mt-1">
+      Nauzet is a <GenericLink
+        href="https://en.wikipedia.org/wiki/Guanches"
+        text="guanche name"
+      />, which means "the warrior of every battle", a warrior who never lost or
+      fought injured. Aduen is also a guanche name, but it's meaning is unknown.
+    </p>
+  </Section>
+  <Divider />
+  <Section>
+    <Title text="Most recent work" />
+    <p>
+      In 2022, worked at
+      <GenericLink href="https://www.barkibu.com" text="Barkibu" />
+       helping develop the mobile app in Flutter. Worked in every area, from
+      backend, in Ruby on Rails, to DevOps, with Bitrise, Heroku, AWS, etc.
+      Focused mostly in the App and DevOps, I led the development for half a
+      year where I was alone or without another junior dev.
+    </p>
+    <p class="mt-1">
+      In 2021, worked at
+      <GenericLink href="https://adedelivered.com" text="ADE" />
+       where I helped develop a webapp in React aimed at helping companies in
+      the mobility sector adapt to the new e-mobility landscape. Two junior
+      developers made an MVP possible and the project is currently in a PMF
+      phase.
+    </p>
+  </Section>
+  <Divider />
+  <Section>
+    <Title text="Tech" />
+    <p>
+      Have a Degree in Computer Engineering with an intesification in Software
+      Engineering by the <GenericLink
+        href="https://www.ulpgc.es"
+        text="ULPGC"
+      />.
+    </p>
+    <p class="mt-1">
+      Focused in mobile and front-end development, specifically in Flutter, with
+      around 3 years of experience.
+    </p>
+    <p class="mt-1">
+      Love to learn new tech and be the first adapter and then forget about it,
+      for example, developing a couple of portfolios in Flutter web, NextJS and
+      Astro.
+    </p>
+    <Button
+      href="https://www.github.com/NauzetAduen"
+      text="Visit my github"
+      external="true"
+    />
+  </Section>
+  <Divider />
+  <Section>
+    <Title text="Personal" />
+    <p>
+      Some of my hobbies are learning the guitar and the bass, <GenericLink
+        href="https://www.chess.com/member/nowset"
+        text="playing chess"
+      /> and working out.
+    </p>
 
-	<p>
-		Morbi tristique senectus et netus. Id semper risus in hendrerit gravida rutrum quisque non
-		tellus. Habitasse platea dictumst quisque sagittis purus sit amet. Tellus molestie nunc non
-		blandit massa. Cursus vitae congue mauris rhoncus. Accumsan tortor posuere ac ut. Fringilla urna
-		porttitor rhoncus dolor. Elit ullamcorper dignissim cras tincidunt lobortis. In cursus turpis
-		massa tincidunt dui ut ornare lectus. Integer feugiat scelerisque varius morbi enim nunc.
-		Bibendum neque egestas congue quisque egestas diam. Cras ornare arcu dui vivamus arcu felis
-		bibendum. Dignissim suspendisse in est ante in nibh mauris. Sed tempus urna et pharetra pharetra
-		massa massa ultricies mi.
-	</p>
-
-	<p>
-		Mollis nunc sed id semper risus in. Convallis a cras semper auctor neque. Diam sit amet nisl
-		suscipit. Lacus viverra vitae congue eu consequat ac felis donec. Egestas integer eget aliquet
-		nibh praesent tristique magna sit amet. Eget magna fermentum iaculis eu non diam. In vitae
-		turpis massa sed elementum. Tristique et egestas quis ipsum suspendisse ultrices. Eget lorem
-		dolor sed viverra ipsum. Vel turpis nunc eget lorem dolor sed viverra. Posuere ac ut consequat
-		semper viverra nam. Laoreet suspendisse interdum consectetur libero id faucibus. Diam phasellus
-		vestibulum lorem sed risus ultricies tristique. Rhoncus dolor purus non enim praesent elementum
-		facilisis. Ultrices tincidunt arcu non sodales neque. Tempus egestas sed sed risus pretium quam
-		vulputate. Viverra suspendisse potenti nullam ac tortor vitae purus faucibus ornare. Fringilla
-		urna porttitor rhoncus dolor purus non. Amet dictum sit amet justo donec enim.
-	</p>
-
-	<p>
-		Mattis ullamcorper velit sed ullamcorper morbi tincidunt. Tortor posuere ac ut consequat semper
-		viverra. Tellus mauris a diam maecenas sed enim ut sem viverra. Venenatis urna cursus eget nunc
-		scelerisque viverra mauris in. Arcu ac tortor dignissim convallis aenean et tortor at. Curabitur
-		gravida arcu ac tortor dignissim convallis aenean et tortor. Egestas tellus rutrum tellus
-		pellentesque eu. Fusce ut placerat orci nulla pellentesque dignissim enim sit amet. Ut enim
-		blandit volutpat maecenas volutpat blandit aliquam etiam. Id donec ultrices tincidunt arcu. Id
-		cursus metus aliquam eleifend mi.
-	</p>
-
-	<p>
-		Tempus quam pellentesque nec nam aliquam sem. Risus at ultrices mi tempus imperdiet. Id porta
-		nibh venenatis cras sed felis eget velit. Ipsum a arcu cursus vitae. Facilisis magna etiam
-		tempor orci eu lobortis elementum. Tincidunt dui ut ornare lectus sit. Quisque non tellus orci
-		ac. Blandit libero volutpat sed cras. Nec tincidunt praesent semper feugiat nibh sed pulvinar
-		proin gravida. Egestas integer eget aliquet nibh praesent tristique magna.
-	</p>
-</Layout>
+    <p class="mt-1">
+      Far into the past, played football, basketball and videogames for years.
+    </p>
+    <p class="mt-1">Diabetic type I, broken too many bones, sleeps poorly.</p>
+  </Section>
+</MainLayout>
