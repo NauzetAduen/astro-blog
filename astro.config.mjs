@@ -9,7 +9,4 @@ export default defineConfig({
   server: { port: 4321, host: true },
   site: "https://nauzet.vercel.app",
   integrations: [mdx(), sitemap(), tailwind()],
-  experimental: {
-    viewTransitions: true,
-  },
 });
