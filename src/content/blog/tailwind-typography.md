@@ -7,7 +7,7 @@ isFeatured: true
 
 My first blog article is about a recent issue I encountered during the development of this same project.
 
-In my last project with nextjs I thought it would be easier to load them from dev.to instead of having them in markdown docs. Now I want them to be read from MD files and displayed on their own /blog/slug URLs.
+In my last project with nextjs I thought it would be easier to load my posts/articles from dev.to instead of having them in markdown docs. Now I want them to be read from MD files and displayed on their own /blog/slug URLs.
 
 ## The problem
 
