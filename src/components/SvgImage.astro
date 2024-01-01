@@ -12,7 +12,7 @@ const iconsMap: { [key: string]: ImageMetadata } = {
 
 //defaulting svgCodeSquare
 const icon = iconsMap[iconString] ?? svgCodeSquare;
-const altText = iconString === "undefined" ? iconString : "project image";
+const altText = iconString === "undefined" ? iconString : "project";
 ---
 
 <img width="20px" height="20px" src={icon.src} alt={altText} />

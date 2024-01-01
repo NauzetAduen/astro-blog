@@ -6,6 +6,13 @@ const { svg, alt, href } = Astro.props;
   class="ease bg-gradient-to-tl from-springGreen to-springGreen bg-invisibleSmall bg-left-bottom bg-no-repeat duration-300 hover:bg-visibleSmall"
 >
   <a href={href} rel="noopener noreferrer" target="_blank">
-    <img width="20px" height="20px" src={svg.src} alt={alt} />
+    <img
+      width="20px"
+      height="20px"
+      src={svg.src}
+      alt={alt}
+      class="group-hover:opacity-50 transition-opacity"
+    />
+    <span class="sr-only group-hover:not-sr-only">{alt}</span>
   </a>
 </div>
