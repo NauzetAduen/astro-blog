@@ -17,5 +17,6 @@ export interface BlogPost {
     body: EntryFieldTypes.RichText;
     image: EntryFieldTypes.AssetLink
     date: EntryFieldTypes.Date;
+    description: EntryFieldTypes.Text;
   };
 }

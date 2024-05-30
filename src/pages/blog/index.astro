@@ -25,7 +25,7 @@ const posts = await contentfulClient.getEntries<BlogPost>({
           <Card
             slug={blog.fields.slug}
             title={blog.fields.title}
-            description={blog.fields.title}
+            description={blog.fields.description}
             pubDate={blog.fields.date}
             base="blog"
           />

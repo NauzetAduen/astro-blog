@@ -39,7 +39,7 @@ export async function getStaticPaths() {
     props: {
       title: item.fields.title,
       content: documentToHtmlString(item.fields.body, renderOptions),
-      date: new Date(item.fields.date).toLocaleDateString(),
+      date: new Date(item.fields.date),
     },
   }));
   return pages;
@@ -51,8 +51,8 @@ const { content, title, date } = Astro.props;
 <ItemLayout title={title} description={title}>
   <h1 class="text-fireEngineRed" transition:name="title">{title}</h1>
   <p class="text-sm" transition:name="date">
-    <!-- <FormattedDate date={date} /> -->
+    <FormattedDate date={date} />
   </p>
   <Divider />
-  <article set:html={content} />
+  <div set:html={content} />
 </ItemLayout>
