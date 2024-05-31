@@ -8,6 +8,12 @@ export const contentfulClient = contentful.createClient({
   host: import.meta.env.DEV ? "preview.contentful.com" : "cdn.contentful.com",
 });
 
+export async function getBlogPosts(){
+  return  await contentfulClient.getEntries<BlogPost>({
+    content_type: "blogpost",
+  });
+}
+
 
 export interface BlogPost {
   contentTypeId: "blogpost";
@@ -18,5 +24,6 @@ export interface BlogPost {
     image: EntryFieldTypes.AssetLink
     date: EntryFieldTypes.Date;
     description: EntryFieldTypes.Text;
+    featured: EntryFieldTypes.Boolean;
   };
 }

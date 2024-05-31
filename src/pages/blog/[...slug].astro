@@ -1,8 +1,9 @@
 ---
+import { getEntries } from "astro:content";
 import Divider from "../../components/Divider.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import ItemLayout from "../../layouts/ItemLayout.astro";
-import { contentfulClient, type BlogPost } from "../../lib/contentful";
+import { getBlogPosts } from "../../lib/contentful";
 import {
   documentToHtmlString,
   type Options,
@@ -17,9 +18,7 @@ interface Props {
 }
 
 export async function getStaticPaths() {
-  const entries = await contentfulClient.getEntries<BlogPost>({
-    content_type: "blogpost",
-  });
+  const entries = await getBlogPosts();
 
   const renderOptions: Options = {
     renderNode: {
