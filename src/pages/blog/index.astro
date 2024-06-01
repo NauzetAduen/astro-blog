@@ -21,12 +21,12 @@ const posts = await contentfulClient.getEntries<BlogPost>({
     <Title text="Blog posts" />
     <ul>
       {
-        posts.items.map((blog) => (
+        posts.items.map((blogPost) => (
           <Card
-            slug={blog.fields.slug}
-            title={blog.fields.title}
-            description={blog.fields.description}
-            pubDate={blog.fields.date}
+            slug={blogPost.fields.slug}
+            title={blogPost.fields.title}
+            description={blogPost.fields.description}
+            pubDate={blogPost.fields.date}
             base="blog"
           />
         ))

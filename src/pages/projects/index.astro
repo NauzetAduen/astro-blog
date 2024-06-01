@@ -1,14 +1,25 @@
 ---
-import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
 import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
 import BaseHead from "../../components/BaseHead.astro";
+import { contentfulClient, type Project } from "../../lib/contentful";
 
-const projects = (await getCollection("projects")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const projects = await contentfulClient.getEntries<Project>({
+  content_type: "project",
+});
+
+projects.items.sort((a, b) => {
+  const dateA = getDate(a.fields.date);
+  const dateB = getDate(b.fields.date);
+
+  return dateB.getTime() - dateA.getTime();
+});
+
+function getDate(date: string | Date) {
+  return typeof date === "string" ? new Date(date) : date;
+}
 ---
 
 <MainLayout>
@@ -21,14 +32,14 @@ const projects = (await getCollection("projects")).sort(
     <Title text="Personal projects" />
     <ul>
       {
-        projects.map((project) => (
+        projects.items.map((project) => (
           <Card
-            slug={project.slug}
-            title={project.data.title}
-            description={project.data.description}
-            pubDate={project.data.pubDate}
+            slug={project.fields.slug}
+            title={project.fields.title}
+            description={project.fields.description}
+            pubDate={project.fields.date}
             base="projects"
-            icon={project.data.icon}
+            icon={project.fields.icon}
           />
         ))
       }

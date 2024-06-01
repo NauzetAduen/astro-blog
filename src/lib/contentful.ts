@@ -8,9 +8,15 @@ export const contentfulClient = contentful.createClient({
   host: import.meta.env.DEV ? "preview.contentful.com" : "cdn.contentful.com",
 });
 
+
 export async function getBlogPosts(){
   return  await contentfulClient.getEntries<BlogPost>({
     content_type: "blogpost",
+  });
+}
+export async function getProjects(){
+  return  await contentfulClient.getEntries<Project>({
+    content_type: "project",
   });
 }
 
@@ -21,9 +27,21 @@ export interface BlogPost {
     title: EntryFieldTypes.Text;
     slug: EntryFieldTypes.Text;
     body: EntryFieldTypes.RichText;
-    image: EntryFieldTypes.AssetLink
+    image: EntryFieldTypes.AssetLink;
     date: EntryFieldTypes.Date;
     description: EntryFieldTypes.Text;
     featured: EntryFieldTypes.Boolean;
   };
+}
+export interface Project {
+  contentTypeId: "project";
+  fields:{
+    title: EntryFieldTypes.Text;
+    slug: EntryFieldTypes.Text;
+    body: EntryFieldTypes.RichText;
+    date: EntryFieldTypes.Date;
+    description: EntryFieldTypes.Text;
+    image: EntryFieldTypes.AssetLink;
+    icon: EntryFieldTypes.Text;
+  }
 }
