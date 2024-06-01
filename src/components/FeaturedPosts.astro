@@ -1,11 +1,11 @@
 ---
-import { getCollection } from "astro:content";
 import Title from "./Title.astro";
 import Card from "./Card.astro";
 import Section from "./Section.astro";
+import { getBlogPosts } from "../lib/contentful";
 
-const posts = await getCollection("blog");
-const featuredPosts = posts.filter((post) => post.data.isFeatured);
+const entries = await getBlogPosts();
+const featuredPosts = entries.items.filter((item) => item.fields.featured);
 ---
 
 {
@@ -15,10 +15,10 @@ const featuredPosts = posts.filter((post) => post.data.isFeatured);
       <ul>
         {featuredPosts.map((featuredPost) => (
           <Card
-            slug={featuredPost.slug}
-            title={featuredPost.data.title}
-            description={featuredPost.data.description}
-            pubDate={featuredPost.data.pubDate}
+            slug={featuredPost.fields.slug}
+            title={featuredPost.fields.title}
+            description={featuredPost.fields.description}
+            pubDate={featuredPost.fields.date}
             base="blog"
           />
         ))}

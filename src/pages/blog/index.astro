@@ -1,14 +1,15 @@
 ---
-import { getCollection } from "astro:content";
 import MainLayout from "../../layouts/MainLayout.astro";
 import Title from "../../components/Title.astro";
 import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
 import BaseHead from "../../components/BaseHead.astro";
+import { contentfulClient, type BlogPost } from "../../lib/contentful";
+import NotLoaded from "../../components/NotLoaded.astro";
 
-const posts = (await getCollection("blog")).sort(
-  (a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf()
-);
+const posts = await contentfulClient.getEntries<BlogPost>({
+  content_type: "blogpost",
+});
 ---
 
 <MainLayout>
@@ -19,18 +20,22 @@ const posts = (await getCollection("blog")).sort(
   />
   <Section>
     <Title text="Blog posts" />
-    <ul>
-      {
-        posts.map((blog) => (
-          <Card
-            slug={blog.slug}
-            title={blog.data.title}
-            description={blog.data.description}
-            pubDate={blog.data.pubDate}
-            base="blog"
-          />
-        ))
-      }
-    </ul>
+    {
+      posts.total !== 0 ? (
+        <ul>
+          {posts.items.map((blogPost) => (
+            <Card
+              slug={blogPost.fields.slug}
+              title={blogPost.fields.title}
+              description={blogPost.fields.description}
+              pubDate={blogPost.fields.date}
+              base="blog"
+            />
+          ))}
+        </ul>
+      ) : (
+        <NotLoaded typeNotLoaded="blogposts" />
+      )
+    }
   </Section>
 </MainLayout>
