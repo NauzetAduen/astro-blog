@@ -1,29 +1,56 @@
 ---
-import BaseHead from "../../components/BaseHead.astro";
 import Divider from "../../components/Divider.astro";
 import FormattedDate from "../../components/FormattedDate.astro";
 import ItemLayout from "../../layouts/ItemLayout.astro";
-import { type CollectionEntry, getCollection } from "astro:content";
+import { getBlogPosts } from "../../lib/contentful";
+import {
+  documentToHtmlString,
+  type Options,
+} from "@contentful/rich-text-html-renderer";
+import { BLOCKS, type Block, type Inline } from "@contentful/rich-text-types";
+import type { Asset } from "contentful";
+
+interface Props {
+  title: string;
+  content: Document;
+  date: Date;
+}
 
 export async function getStaticPaths() {
-  const posts = await getCollection("blog");
-  return posts.map((post) => ({
-    params: { slug: post.slug },
-    props: post,
-  }));
-}
-type Props = CollectionEntry<"blog">;
+  const entries = await getBlogPosts();
 
-const post = Astro.props;
-const { Content } = await post.render();
-const title = post.data.title + " | Article";
+  const renderOptions: Options = {
+    renderNode: {
+      [BLOCKS.EMBEDDED_ASSET]: (node: Block | Inline) => {
+        const asset = node.data.target as Asset;
+        const { file, title, description } = asset.fields;
+
+        return file
+          ? `<img src="${file.url}" alt="${title || description}" />`
+          : "";
+      },
+    },
+  };
+
+  const pages = entries.items.map((item) => ({
+    params: { slug: item.fields.slug },
+    props: {
+      title: item.fields.title,
+      content: documentToHtmlString(item.fields.body, renderOptions),
+      date: new Date(item.fields.date),
+    },
+  }));
+  return pages;
+}
+
+const { content, title, date } = Astro.props;
 ---
 
-<ItemLayout title={title} description={post.data.description}>
-  <h1 class="text-fireEngineRed" transition:name="title">{post.data.title}</h1>
+<ItemLayout title={title} description={title}>
+  <h1 class="text-fireEngineRed" transition:name="title">{title}</h1>
   <p class="text-sm" transition:name="date">
-    <FormattedDate date={post.data.pubDate} />
+    <FormattedDate date={date} />
   </p>
   <Divider />
-  <Content />
+  <div set:html={content} />
 </ItemLayout>
