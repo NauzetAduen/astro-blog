@@ -5,6 +5,7 @@ import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
 import BaseHead from "../../components/BaseHead.astro";
 import { contentfulClient, type Project } from "../../lib/contentful";
+import NotLoaded from "../../components/NotLoaded.astro";
 
 const projects = await contentfulClient.getEntries<Project>({
   content_type: "project",
@@ -30,19 +31,23 @@ function getDate(date: string | Date) {
   />
   <Section>
     <Title text="Personal projects" />
-    <ul>
-      {
-        projects.items.map((project) => (
-          <Card
-            slug={project.fields.slug}
-            title={project.fields.title}
-            description={project.fields.description}
-            pubDate={project.fields.date}
-            base="projects"
-            icon={project.fields.icon}
-          />
-        ))
-      }
-    </ul>
+    {
+      projects.total !== 0 ? (
+        <ul>
+          {projects.items.map((project) => (
+            <Card
+              slug={project.fields.slug}
+              title={project.fields.title}
+              description={project.fields.description}
+              pubDate={project.fields.date}
+              base="projects"
+              icon={project.fields.icon}
+            />
+          ))}
+        </ul>
+      ) : (
+        <NotLoaded typeNotLoaded="projects" />
+      )
+    }
   </Section>
 </MainLayout>

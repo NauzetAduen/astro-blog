@@ -5,6 +5,7 @@ import Card from "../../components/Card.astro";
 import Section from "../../components/Section.astro";
 import BaseHead from "../../components/BaseHead.astro";
 import { contentfulClient, type BlogPost } from "../../lib/contentful";
+import NotLoaded from "../../components/NotLoaded.astro";
 
 const posts = await contentfulClient.getEntries<BlogPost>({
   content_type: "blogpost",
@@ -19,18 +20,22 @@ const posts = await contentfulClient.getEntries<BlogPost>({
   />
   <Section>
     <Title text="Blog posts" />
-    <ul>
-      {
-        posts.items.map((blogPost) => (
-          <Card
-            slug={blogPost.fields.slug}
-            title={blogPost.fields.title}
-            description={blogPost.fields.description}
-            pubDate={blogPost.fields.date}
-            base="blog"
-          />
-        ))
-      }
-    </ul>
+    {
+      posts.total !== 0 ? (
+        <ul>
+          {posts.items.map((blogPost) => (
+            <Card
+              slug={blogPost.fields.slug}
+              title={blogPost.fields.title}
+              description={blogPost.fields.description}
+              pubDate={blogPost.fields.date}
+              base="blog"
+            />
+          ))}
+        </ul>
+      ) : (
+        <NotLoaded typeNotLoaded="blogposts" />
+      )
+    }
   </Section>
 </MainLayout>
