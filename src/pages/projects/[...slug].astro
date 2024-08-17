@@ -47,7 +47,7 @@ const { content, title, date } = Astro.props;
 ---
 
 <ItemLayout title={title} description={title}>
-  <h1 class="text-fireEngineRed" transition:name="title">{title}</h1>
+  <h1 class="text-secondaryAccent" transition:name="title">{title}</h1>
   <p class="text-sm" transition:name="date">
     <FormattedDate date={date} />
   </p>

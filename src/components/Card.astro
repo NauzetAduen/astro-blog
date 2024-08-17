@@ -6,7 +6,7 @@ const { slug, title, description, pubDate, base, icon } = Astro.props;
 ---
 
 <li
-  class="max-w-fit my-4 ease bg-gradient-to-tl from-springGreen to-springGreen bg-invisibleBig bg-left-bottom bg-no-repeat duration-300 hover:bg-visibleBig hover:scale-105"
+  class="max-w-fit my-4 ease bg-gradient-to-tl from-primaryAccent to-primaryAccent bg-invisibleBig bg-left-bottom bg-no-repeat duration-300 hover:bg-visibleBig hover:scale-105"
 >
   <a href={`/${base}/${slug}/`}>
     <div class="flex gap-2">
@@ -16,7 +16,7 @@ const { slug, title, description, pubDate, base, icon } = Astro.props;
     <p class="text-sm" transition:name="date">
       <FormattedDate date={pubDate} />
     </p>
-    <p class="text-base text-payneGrey italic">
+    <p class="text-base text-greyColor italic">
       {description}
     </p>
   </a>
