@@ -5,9 +5,9 @@ module.exports = {
     extend: {
       fontFamily: { custom: ["Atkinson"] },
       backgroundSize: {
-        visibleSmall: "100% 15px",
+        visibleSmall: "100% 50%",
         visibleBig: "100% 100%",
-        invisibleSmall: "0% 15px",
+        invisibleSmall: "0% 50%",
         invisibleBig: "0% 100%",
       },
       colors: {
